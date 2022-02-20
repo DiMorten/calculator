@@ -1,0 +1,19 @@
+#button-container {
+    display: flex;
+    flex-direction: column;
+    width: 640px;
+    height: 640px;
+    border: 2px solid black;
+}
+
+.row {
+    display: flex;
+    
+    flex:1;
+}
+
+.box {
+    display: flex;
+    flex: 1;
+    border: 2px solid gray;
+}
