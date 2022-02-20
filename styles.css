@@ -3,6 +3,18 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#columndiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 #display {
     display: flex;
     flex-direction: column;
