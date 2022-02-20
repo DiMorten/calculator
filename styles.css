@@ -1,8 +1,20 @@
+* {
+    font-family: Roboto-Bold;
+    box-sizing: border-box;
+}
 #button-container {
     display: flex;
     flex-direction: column;
     width: 640px;
     height: 640px;
+    border: 2px solid black;
+}
+
+#arrows-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 300px;
     border: 2px solid black;
 }
 
@@ -12,8 +24,32 @@
     flex:1;
 }
 
-.box {
+
+
+button.box {
     display: flex;
     flex: 1;
     border: 2px solid gray;
+    font-family: Roboto-Bold;
+
+    background-color: #3882f6;
+    color: #f9faf8;
+    border-radius: 10px;
+    font-size: 42px;
+    padding: 15px;
+    margin: 0;
+}
+
+
+
+button.hidden-box {
+    display: flex;
+    flex: 1;
+    font-family: Roboto-Bold;
+
+    background-color: white;
+    border-radius: 10px;
+    font-size: 42px;
+    padding: 15px;
+    margin: 0;
 }
