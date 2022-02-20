@@ -68,6 +68,8 @@ function otherButtonsCallback(e) {
     if (key === 'bck') 
         displayInput.innerHTML = displayInput.innerHTML.slice(0, -1);
     else if (key === 'enter') {
+        console.log("Enter");
+        console.log(displayInput.innerHTML)
         calculateFromString(displayInput.innerHTML);
     }
     else if (key === 'clear') {
@@ -87,6 +89,7 @@ function calculateFromString(string) {
     indexOperator = false;
     indexEndOperation = false;
     partialResult = 0;
+    a = undefined;
     for (i = 0; i< string.length; i++) {
         char = string.charAt(i);
         if (!DIGITS.includes(char))   {
@@ -114,10 +117,18 @@ function calculateFromString(string) {
             // console.log({b});
         }            
     }
-    if (typeof a !== 'undefined') result = operationFromString(parseInt(a), parseInt(b), operation);
-    else result = parseInt(string);
+    if (typeof a !== 'undefined') {
+        result = operationFromString(parseInt(a), parseInt(b), operation);
+        displayHistory.innerHTML = string + " = " + result.toString();
+    }
+    else {
+        console.log("Single number");
+        console.log({string});
+        result = string;
+        displayHistory.innerHTML = string;
+    }
     console.log({result});
-    displayHistory.innerHTML = string + " = " + result;
+    
 
 }
 
