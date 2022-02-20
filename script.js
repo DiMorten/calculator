@@ -38,6 +38,7 @@ function createGrid(gridProperties) {
 
 
             if (DIGITS.includes(text)) callback = digitsCallback;
+            else if (text == '.') callback = digitsCallback;
             else if (OPERATIONS.includes(text)) callback = operationsCallback;
             else callback = otherButtonsCallback;
             boxDiv.addEventListener('mousedown', callback);   
@@ -92,7 +93,7 @@ function calculateFromString(string) {
     a = undefined;
     for (i = 0; i< string.length; i++) {
         char = string.charAt(i);
-        if (!DIGITS.includes(char))   {
+        if (!DIGITS.includes(char) && char !== '.')   {
             if (indexOperator === false) {
                 operationType = char;
                 indexOperator = i;    
@@ -118,7 +119,8 @@ function calculateFromString(string) {
         }            
     }
     if (typeof a !== 'undefined') {
-        result = operationFromString(parseInt(a), parseInt(b), operation);
+        result = operationFromString(parseFloat(a), parseFloat(b), operation);
+        result = +(result).toFixed(2);
         displayHistory.innerHTML = string + " = " + result.toString();
     }
     else {
