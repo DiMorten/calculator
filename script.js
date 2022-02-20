@@ -114,9 +114,10 @@ function calculateFromString(string) {
             // console.log({b});
         }            
     }
-    result = operationFromString(parseInt(a), parseInt(b), operation);
+    if (typeof a !== 'undefined') result = operationFromString(parseInt(a), parseInt(b), operation);
+    else result = parseInt(string);
     console.log({result});
-    displayHistory.innerHTML = result;
+    displayHistory.innerHTML = string + " = " + result;
 
 }
 
