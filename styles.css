@@ -24,7 +24,7 @@ body {
     height: 640px;
     border: 2px solid black;
     font-size: 56px;
-
+    margin-bottom: 10px;
 }
 
 #display-history {
@@ -45,6 +45,8 @@ body {
     
     height: 640px;
     border: 2px solid black;
+    
+    
 }
 
 #arrows-container {
@@ -54,6 +56,7 @@ body {
     height: 300px;
     border: 2px solid black;
     align-self: center;
+    margin-bottom: 10px;
 
 }
 
