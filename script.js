@@ -41,11 +41,24 @@ function createGrid(gridProperties) {
             else if (text == '.') callback = digitsCallback;
             else if (OPERATIONS.includes(text)) callback = operationsCallback;
             else callback = otherButtonsCallback;
-            boxDiv.addEventListener('mousedown', callback);   
+            boxDiv.addEventListener('mousedown', callback);  
+            boxDiv.addEventListener('mousedown', pressButtonColorCallback);  
+            boxDiv.addEventListener('mouseup', releaseButtonColorCallback);  
+
             rowDiv.appendChild(boxDiv);     
 
         }
     }
+}
+
+function pressButtonColorCallback(e) {
+    this.setAttribute('style', 'background-color: #275eb6;'); 
+
+}
+
+function releaseButtonColorCallback(e) {
+    this.setAttribute('style', 'background-color: #3882f6;'); 
+
 }
 
 function digitsCallback(e) {
