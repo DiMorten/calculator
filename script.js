@@ -214,9 +214,9 @@ function operationFromString(a, b, operation) {
     }
 }
 
-arrowsGridText = [[' ', '↥', ' '],
-                ['↤', ' ', '↦'],
-                [' ', '↧', ' ']];
+arrowsGridText = [[' ', '↾', ' '],
+                ['↼', ' ', '⇀'],
+                [' ', '⇂', ' ']];
 
 arrowsGridProperties = new GridProperties(arrowsContainer,
         arrowsGridText,
@@ -224,7 +224,7 @@ arrowsGridProperties = new GridProperties(arrowsContainer,
 
 createGrid(arrowsGridProperties);
 
-buttonGridText = [[' ', ' ', 'bck', '/'],
+buttonGridText = [[' ', ' ', '⬅', '/'],
                 ['7', '8', '9', '*'], 
                 ['4', '5', '6', '-'], 
                 ['1', '2', '3', '+'], 
