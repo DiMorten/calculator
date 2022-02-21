@@ -81,12 +81,8 @@ function otherButtonsCallback(e) {
     // displayInputString += e.
 
 }
-
-function calculateFromString(string) {
-    /* for (operation in OPERATIONS) {
-        string = [string.split(operation);
-    }
-    console.log({string}); */
+/*
+function parseOperation(string) {
     indexOperator = false;
     indexEndOperation = false;
     partialResult = 0;
@@ -118,17 +114,91 @@ function calculateFromString(string) {
             // console.log({b});
         }            
     }
+
     if (typeof a !== 'undefined') {
         result = operationFromString(parseFloat(a), parseFloat(b), operation);
         result = +(result).toFixed(2);
-        displayHistory.innerHTML = string + " = " + result.toString();
     }
     else {
         console.log("Single number");
         console.log({string});
         result = string;
+    }
+    return result;
+
+}
+*/
+function getIndicesOf(searchStr, str, caseSensitive) {
+    var searchStrLen = searchStr.length;
+    if (searchStrLen == 0) {
+        return [];
+    }
+    var startIndex = 0, index, indices = [];
+    if (!caseSensitive) {
+        str = str.toLowerCase();
+        searchStr = searchStr.toLowerCase();
+    }
+    while ((index = str.indexOf(searchStr, startIndex)) > -1) {
+        indices.push(index);
+        startIndex = index + searchStrLen;
+    }
+    return indices;
+}
+
+function parseOperation(string) {
+    orderedOperations = []
+
+    for (i = 0; i < string.length; i++) {
+        char = string.charAt(i);
+        if(OPERATIONS.includes(char)) orderedOperations.push(char);
+    }
+    numbers = string.split("*").join(",").split("/").join(",").split("+").join(",").split("-").join(",").split(",")
+
+    result = computeOperations(numbers, orderedOperations);
+
+    return result;
+}
+
+function computeOperations(numbers, orderedOperations) {
+    console.log("Starting computeOperations");
+    console.log(numbers, orderedOperations);
+    for ([idx, operation] of orderedOperations.entries()) {
+        if (operation !== '*' && operation !== '/') continue
+        operationResult = operationFromString(parseFloat(numbers[idx]), parseFloat(numbers[idx+1]), operation);
+        operationResult = +(operationResult).toFixed(2);
+
+        numbers.splice(idx, 2, operationResult.toString());
+        orderedOperations.splice(idx, 1);
+
+    }
+
+    for ([idx, operation] of orderedOperations.entries()) {
+        operationResult = operationFromString(parseFloat(numbers[idx]), parseFloat(numbers[idx+1]), operation);
+        operationResult = +(operationResult).toFixed(2);
+        numbers.splice(idx, 2, operationResult.toString());
+        orderedOperations.splice(idx, 1);
+    }    
+
+    result = numbers.reduce((partialSum, a) => partialSum + parseFloat(a), 0);
+
+    
+    return result;
+}
+
+function calculateFromString(string) {
+    /* for (operation in OPERATIONS) {
+        string = [string.split(operation);
+    }
+    console.log({string}); */
+    result = parseOperation(string);
+
+    if (result !== string) {
+        displayHistory.innerHTML = string + " = " + result.toString();
+    }
+    else {
         displayHistory.innerHTML = string;
     }
+    
     console.log({result});
     
 
