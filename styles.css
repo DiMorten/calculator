@@ -45,7 +45,7 @@ body {
     flex-direction: column;
     
     height: 640px;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     
     
 }
@@ -55,7 +55,7 @@ body {
     flex-direction: column;
     width: 300px;
     height: 300px;
-    border: 2px solid black;
+    /*border: 2px solid black;*/
     align-self: center;
     margin-bottom: 10px;
 
@@ -89,7 +89,7 @@ button.hidden-box {
     display: flex;
     flex: 1;
     font-family: Roboto-Bold;
-
+    border: 2px solid white;
     background-color: white;
     border-radius: 10px;
     font-size: 56px;

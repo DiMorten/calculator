@@ -27,7 +27,7 @@ function createGrid(gridProperties) {
             const boxDiv = document.createElement('button');
             boxDiv.setAttribute('id', 'box_' + j.toString() + '_' + i.toString());
             boxDiv.setAttribute('data-key', text);
-            if (text === ' ') boxClass = 'box'
+            if (text === ' ') boxClass = 'hidden-box'
             else {
                 boxClass = 'box';
                 boxDiv.innerHTML = text;
