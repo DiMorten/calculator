@@ -205,7 +205,7 @@ function calculateFromString(string) {
     console.log({string}); */
     result = parseOperation(string);
 
-    if (result !== string) {
+    if (result != string) {
         displayHistory.innerHTML = string + " = " + result.toString();
     }
     else {
