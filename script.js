@@ -79,7 +79,7 @@ function operationsCallback(e) {
 
 function otherButtonsCallback(e) {
     const key = e.target.dataset.key;
-    if (key === 'bck') 
+    if (key === '←') 
         displayInput.innerHTML = displayInput.innerHTML.slice(0, -1);
     else if (key === 'enter') {
         console.log("Enter");
@@ -237,7 +237,7 @@ arrowsGridProperties = new GridProperties(arrowsContainer,
 
 createGrid(arrowsGridProperties);
 
-buttonGridText = [[' ', ' ', '⬅', '/'],
+buttonGridText = [[' ', ' ', '←', '/'],
                 ['7', '8', '9', '*'], 
                 ['4', '5', '6', '-'], 
                 ['1', '2', '3', '+'], 
